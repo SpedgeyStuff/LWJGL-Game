@@ -41,12 +41,6 @@ public class DisplayManager {
     }
 
     public static void updateDisplay() {
-        while (glfwWindowShouldClose(windowId) == false) {
-            render();
-        }
-    }
-
-    private static void render() {
         glClear(GL_COLOR_BUFFER_BIT);
         glfwSwapBuffers(windowId);          // swaps front and back frame buffers
         glfwPollEvents();                   // checks mouse and keyboard input
@@ -56,5 +50,9 @@ public class DisplayManager {
         // Closes the game window
         glfwDestroyWindow(windowId);
         glfwTerminate();
+    }
+
+    public static boolean isCloseRequested() {
+        return (glfwWindowShouldClose(windowId));
     }
 }

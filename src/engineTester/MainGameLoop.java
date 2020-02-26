@@ -25,15 +25,11 @@ public class MainGameLoop {
 
         RawModel model = loader.loadToVAO(vertices);
 
-
-        // While the red X isn't pressed
-        //while (!Display.isCloseRequested()) {
+        while (!DisplayManager.isCloseRequested()) {
             renderer.preRender();
             renderer.render(model);
             DisplayManager.updateDisplay();
-       // }
-
-
+        }
         // Once the red X has been pressed
         DisplayManager.closeDisplay();
 
