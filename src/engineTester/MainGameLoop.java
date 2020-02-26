@@ -1,6 +1,5 @@
 package engineTester;
 
-import org.lwjgl.opengl.Display;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.RawModel;
@@ -26,12 +25,14 @@ public class MainGameLoop {
 
         RawModel model = loader.loadToVAO(vertices);
 
+
         // While the red X isn't pressed
-        while (!Display.isCloseRequested()) {
+        //while (!Display.isCloseRequested()) {
             renderer.preRender();
             renderer.render(model);
             DisplayManager.updateDisplay();
-        }
+       // }
+
 
         // Once the red X has been pressed
         DisplayManager.closeDisplay();
