@@ -3,6 +3,7 @@ package engineTester;
 import org.lwjgl.opengl.Display;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
+import renderEngine.RawModel;
 import renderEngine.Renderer;
 
 public class MainGameLoop {
@@ -14,8 +15,6 @@ public class MainGameLoop {
         Loader loader = new Loader();
         Renderer renderer = new Renderer();
 
-        RawModel model = loader.loadToVAO();
-
         float[] vertices = {
                 -0.5f, 0.5f, 0f,
                 -0.5f, -0.5f, 0f,
@@ -24,6 +23,8 @@ public class MainGameLoop {
                 0.5f, 0.5f, 0f,
                 -0.5f, 0.5f, 0f
         };
+
+        RawModel model = loader.loadToVAO(vertices);
 
         // While the red X isn't pressed
         while (!Display.isCloseRequested()) {
